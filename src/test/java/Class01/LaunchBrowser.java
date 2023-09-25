@@ -1,0 +1,32 @@
+package Class01;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.decorators.WebDriverDecorator;
+
+public class LaunchBrowser {
+    public static void main(String[] args) throws InterruptedException {
+       //declare the instance of WebDriver
+        WebDriver driver=new ChromeDriver();
+        driver.get("http://www.google.com");
+        //driver.get("http://www.facebook.com");
+
+        // maximize the window
+        driver.manage().window().maximize();
+
+        //get the url of the website
+        String currentUrl=driver.getCurrentUrl();
+        System.out.println("the current url is: "+currentUrl);
+
+        //get the title
+        String title=driver.getTitle();
+        System.out.println("the title of the page is: "+title);
+
+        //  added a wait for 2 seconds to slow the closing of window
+        //delete the sleep after you are done with the script
+        Thread.sleep(2000);
+
+        //close the browser
+        driver.quit();
+    }
+}
